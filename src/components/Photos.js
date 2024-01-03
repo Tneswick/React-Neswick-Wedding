@@ -15,7 +15,7 @@ function Photos() {
       <h2>Photos</h2>
       <div className="photo-grid">
         {photosData.map((photo, index) => (
-          <img key={index} src={photo} alt={`Photo ${index + 1}`} />
+          <img key={index} src={photo} alt={`Capture ${index + 1}`} />
         ))}
       </div>
     </div>
