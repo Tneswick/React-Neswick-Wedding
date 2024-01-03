@@ -1,17 +1,15 @@
-// Home.js
+// OurStory.js
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 function Home() {
   return (
     <div>
-      <h1>Welcome to Our Wedding Website!</h1>
-      <nav>
-        <Link to="/our-story">Our Story</Link>
-        <Link to="/photos">Photos</Link>
-        <Link to="/rsvp">RSVP</Link>
-        <Link to="/about">About</Link>
-      </nav>
+      <h2>Our Story</h2>
+      <img src="path/to/our-story-photo.jpg" alt="Our Story" />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
     </div>
   );
 }
