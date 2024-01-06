@@ -13,10 +13,28 @@ function Rsvp() {
     setAttendance(event.target.value);
   };
 
-  const handleRsvpSubmit = (event) => {
+  const handleRsvpSubmit = async (event) => {
     event.preventDefault();
-    // Handle RSVP submission logic (e.g., send data to server)
-    console.log(`RSVP submitted - Name: ${name}, Attendance: ${attendance}`);
+
+    // try {
+    //   const response = await fetch('/api/rsvp', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({ name, attendance }),
+    //   });
+
+    //   if (response.ok) {
+    //     // RSVP was successful
+    //     console.log('RSVP submitted successfully');
+    //   } else {
+    //     // Handle errors
+    //     console.error('Failed to submit RSVP');
+    //   }
+    // } catch (error) {
+    //   console.error('Error:', error);
+    // }
   };
 
   return (
@@ -29,30 +47,30 @@ function Rsvp() {
         </label>
         <label>
           Will you attend?
-          <select value={attendance} onChange={handleAttendanceChange}>
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
+          <div>
+            <label>
+              <input
+                type="radio"
+                value="yes"
+                checked={attendance === 'yes'}
+                onChange={handleAttendanceChange}
+              />
+              Yes
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="no"
+                checked={attendance === 'no'}
+                onChange={handleAttendanceChange}
+              />
+              No
+            </label>
+          </div>
         </label>
-        <button type="submit">Submit RSVP</button>
+        <button type="submit">Submit</button>
       </form>
-      <div>
-        <p>
-          Thank you for RSVPing! We look forward to celebrating with you.
-        </p>
-        <p>
-          Scan the QR code below to contribute via Venmo:
-        </p>
-        <img
-          src="path/to/venmo-qr-code.png"
-          alt="Venmo QR Code"
-          style={{ maxWidth: '100%', height: 'auto' }}
-        />
-        <p>
-          Your contributions help make our special day even more memorable. Thank you!
-        </p>
-      </div>
+      {/* ... (rest of the component) */}
     </div>
   );
 }
