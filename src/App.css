@@ -39,11 +39,21 @@
 
 /* ---------- end react default css ----------- */
 
+:root {
+  --black: #000000; /* Jet Black */
+  --white: #FFFFFF; /* Pure White */
+  --gold: #FFD700; /* Rich Gold */
+  --grey: #333333; /* Charcoal Gray */
+  --offwhite: #FAEBD7; /* Antique White */
+}
+
+
 /*--------------App.css-------------------*/
 
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
+  background-color: var(--white);
 }
 
 .navbar {
@@ -60,6 +70,11 @@ body {
   color: white;
   font-size: 1.5em;
   cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.menu-button.open {
+  transform: rotate(90deg);
 }
 
 .nav-links {
@@ -79,13 +94,30 @@ body {
 .nav-links a {
   text-decoration: none;
   color: white;
+  padding: 0.5em 0.5em;
 }
 
 .site-title {
  color: white;
- font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+ font-family: 'Dancing Script', cursive;
+ font-size: 2em;
  padding: 0;
  margin: 0;
+ display: flex;
+ align-self: center;
+ margin: 0 auto;
+}
+
+/* ---- OUR STORY ----- */
+
+.our-story-img {
+  background-image: url(https://via.placeholder.com/1600x900);
+  background-size: cover;
+}
+
+.ourstory-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3em;
 }
 
 /*---------------Media query for smaller screens---------------*/
