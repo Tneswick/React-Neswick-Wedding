@@ -13,29 +13,37 @@ function Rsvp() {
     setAttendance(event.target.value);
   };
 
-  const handleRsvpSubmit = async (event) => {
-    event.preventDefault();
+  // https://script.google.com/macros/s/AKfycbxKFPAhwmD1384JBjNMDHLfyBE9lklobV5G145CuptV9frBiWwKgykAk9sKHg1zBX7y/exec
+  // above is the scripts url
 
-    // try {
-    //   const response = await fetch('/api/rsvp', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({ name, attendance }),
-    //   });
+  // api key: AIzaSyDeQt4Jsmh5PQRh32u2oUWsBCUeZRF_F94
 
-    //   if (response.ok) {
-    //     // RSVP was successful
-    //     console.log('RSVP submitted successfully');
-    //   } else {
-    //     // Handle errors
-    //     console.error('Failed to submit RSVP');
-    //   }
-    // } catch (error) {
-    //   console.error('Error:', error);
-    // }
-  };
+  async function submitRSVP(name, attendance) {
+    const sheetApiUrl = 'https://script.google.com/macros/s/AKfycbxKFPAhwmD1384JBjNMDHLfyBE9lklobV5G145CuptV9frBiWwKgykAk9sKHg1zBX7y/exec'; // Replace with the deployed web app URL
+    const data = { name, attendance };
+  
+    try {
+      const response = await fetch(sheetApiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (response.ok) {
+        console.log('RSVP submitted successfully');
+        // Handle success as needed
+      } else {
+        console.error('Error submitting RSVP');
+        // Handle errors
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle errors
+    }
+  }
+  
 
   return (
     <div>
