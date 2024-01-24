@@ -23,11 +23,18 @@ const sheets = google.sheets({
 app.use(express.json());
 
 // POST endpoint to edit a specific cell
-app.post('/editCell', async (req, res) => {
+app.post('/RSVP', async (req, res) => {
   try {
     const { row, inviteCode, newValue } = req.body;
 
     // TODO: Implement validation for inviteCode
+
+
+
+    // USE INSOMNIA TO TEST POST ENDPOINT AND GET ENDPOINT. VALIDATE INVITECODE ASK CHATGPT
+
+
+
 
     const response = await sheets.spreadsheets.values.update({
       spreadsheetId,
