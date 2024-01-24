@@ -1,40 +1,79 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const fetch = require('node-fetch');
+const { google } = require('googleapis');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(bodyParser.json());
+// Read API key and spreadsheet ID from environment variables
+const apiKey = process.env.API_KEY;
+const spreadsheetId = process.env.SHEET_ID;
 
-app.post('/submitRSVP', async (req, res) => {
-  const apiKey = 'AIzaSyDeQt4Jsmh5PQRh32u2oUWsBCUeZRF_F94'; // Replace with your API key
-  const sheetApiUrl = 'https://script.google.com/macros/s/AKfycbxKFPAhwmD1384JBjNMDHLfyBE9lklobV5G145CuptV9frBiWwKgykAk9sKHg1zBX7y/exec'; // Replace with the deployed web app URL
+// Ensure that API key and spreadsheet ID are set
+if (!apiKey || !spreadsheetId) {
+  console.error('Please set the API_KEY and SHEET_ID environment variables.');
+  process.exit(1);
+}
 
-  const data = req.body;
+// Google Sheets API setup
+const sheets = google.sheets({
+  version: 'v4',
+  auth: apiKey, // Using API key for authentication
+});
 
+app.use(express.json());
+
+// POST endpoint to edit a specific cell
+app.post('/editCell', async (req, res) => {
   try {
-    const response = await fetch(`${sheetApiUrl}?key=${apiKey}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const { row, inviteCode, newValue } = req.body;
+
+    // TODO: Implement validation for inviteCode
+
+    const response = await sheets.spreadsheets.values.update({
+      spreadsheetId,
+      range: `Sheet1!${row}`, // Update with your actual sheet name and range
+      valueInputOption: 'RAW',
+      resource: {
+        values: [[newValue]],
       },
-      body: JSON.stringify(data),
     });
 
-    if (response.ok) {
-      console.log('RSVP submitted successfully');
-      res.status(200).json({ success: true });
-    } else {
-      console.error('Error submitting RSVP');
-      res.status(500).json({ success: false, error: 'Internal Server Error' });
-    }
+    res.json(response.data);
   } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ success: false, error: 'Internal Server Error' });
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
+// GET endpoint to pull down data from the spreadsheet
+app.get('/getData', async (req, res) => {
+  try {
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: 'Sheet1', // Update with your actual sheet name
+    });
+
+    const values = response.data.values;
+
+    // Assuming the first row contains headers
+    const headers = values[0];
+
+    const data = values.slice(1).map(row => {
+      const rowData = {};
+      headers.forEach((header, index) => {
+        rowData[header] = row[index];
+      });
+      return rowData;
+    });
+
+    res.json(data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// Start the server
 app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server is running on port ${port}`);
 });
