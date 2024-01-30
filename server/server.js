@@ -1,18 +1,27 @@
 const express = require('express');
 const { google } = require('googleapis');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Read API key and spreadsheet ID from environment variables
-const apiKey = process.env.API_KEY;
+// Read environment variables
+// const apiKey = process.env.API_KEY;
 const spreadsheetId = process.env.SHEET_ID;
+const 
 
 // Ensure that API key and spreadsheet ID are set
-if (!apiKey || !spreadsheetId) {
+if (/*!apiKey || */!spreadsheetId) {
+  console.log(/*apiKey, */spreadsheetId)
   console.error('Please set the API_KEY and SHEET_ID environment variables.');
   process.exit(1);
 }
+
+const client = new google.auth.JWT(
+
+)
 
 // Google Sheets API setup
 const sheets = google.sheets({
