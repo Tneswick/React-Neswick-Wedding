@@ -29,6 +29,8 @@ const client = new google.auth.JWT(
 )
 
 app.use(async (req, res, next) => {
+  // UPDATE .env FILE WITH FULL CLIENT_KEY
+
   try {
     const client = new google.auth.JWT(
       process.env.CLIENT_EMAIL,
@@ -61,7 +63,7 @@ app.get('/read-sheet', async (req, res) => {
     // Make a request to read data from the spreadsheet
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId,
-      range: 'Sheet1!A1:E:160', // Modify this range based on your needs
+      range: 'Sheet1!A1:E160',
     });
 
     const values = response.data.values;
