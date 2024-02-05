@@ -15,18 +15,11 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 
 
 // Ensure that API key and spreadsheet ID are set
-if (/*!apiKey || */!spreadsheetId) {
-  console.log(/*apiKey, */spreadsheetId)
-  console.error('Please set the API_KEY and SHEET_ID environment variables.');
+if (!spreadsheetId) {
+  console.log(spreadsheetId)
+  console.error('Please set the SHEET_ID environment variables.');
   process.exit(1);
 }
-
-const client = new google.auth.JWT(
-  process.env.CLIENT_EMAIL,
-  null,
-  process.env.CLIENT_KEY.replace(/\\n/g, '\n'),
-  SCOPES
-)
 
 app.use(async (req, res, next) => {
   // UPDATE .env FILE WITH FULL CLIENT_KEY
@@ -48,7 +41,7 @@ app.use(async (req, res, next) => {
     next();
   } catch (error) {
     console.error('Error authenticating Google Sheets client:', error);
-    console.log('ERROR 1');
+    console.log('ERROR 1', error.message);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
@@ -68,7 +61,17 @@ app.get('/read-sheet', async (req, res) => {
 
     const values = response.data.values;
 
-    res.json(values);
+    // Format data as an array of objects with key-value pairs
+    const headers = values[0];
+    const formattedData = values.slice(1).map(row => {
+      const rowData = {};
+      headers.forEach((header, index) => {
+        rowData[header] = row[index] || null;
+      });
+      return rowData;
+    });
+
+    res.json(formattedData);
   } catch (error) {
     console.error('Error reading spreadsheet data:', error);
     res.status(500).json({ error: 'Internal Server Error' });
