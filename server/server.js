@@ -1,6 +1,7 @@
 const express = require('express');
 const { google } = require('googleapis');
 const dotenv = require('dotenv');
+const moment = require('moment');
 
 dotenv.config();
 
@@ -8,21 +9,21 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Read environment variables
-// const apiKey = process.env.API_KEY;
 const spreadsheetId = process.env.SHEET_ID;
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 
-
-// Ensure that API key and spreadsheet ID are set
+// Validate environment variables
 if (!spreadsheetId) {
   console.log(spreadsheetId)
-  console.error('Please set the SHEET_ID environment variables.');
+  console.error('Problem with enviroment variables. Check .env file.');
   process.exit(1);
 }
 
+app.use(express.json());
+
 app.use(async (req, res, next) => {
-  // UPDATE .env FILE WITH FULL CLIENT_KEY
+  
 
   try {
     const client = new google.auth.JWT(
@@ -74,6 +75,56 @@ app.get('/read-sheet', async (req, res) => {
     res.json(formattedData);
   } catch (error) {
     console.error('Error reading spreadsheet data:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// POST endpoint to write data to the spreadsheet
+app.post('/update', async (req, res) => {
+  const sheets = google.sheets({ version: 'v4', auth: req.googleSheetsClient });
+
+  const inviteCodeToUpdate = req.body.inviteCode;
+  const newAttendanceValue = req.body.newAttendance;
+
+  if (!inviteCodeToUpdate || !newAttendanceValue) {
+    res.status(400).json({ error: 'Missing parameters' });
+    return;
+  }
+
+  try {
+    // Make a request to read data from the spreadsheet
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: 'Sheet1!A1:E160',
+    });
+
+    const values = response.data.values;
+    const headers = values[0];
+
+    // Find the row index based on the invite code
+    const rowIndexToUpdate = values.findIndex(row => row[headers.indexOf('inviteCode')] === inviteCodeToUpdate);
+
+    if (rowIndexToUpdate === -1) {
+      res.status(404).json({ error: 'Invite code not found' });
+      return;
+    }
+
+    // Get the current date and time
+    const currentDateTime = moment().format('HH:mm a MM/DD/YYYY');
+
+    // Update the attendance and timestamp values in the corresponding row
+    await sheets.spreadsheets.values.update({
+      spreadsheetId,
+      range: `Sheet1!C${rowIndexToUpdate + 1}:D${rowIndexToUpdate + 1}`, // Adding 2 because sheets are 1-indexed, and we skip the header row
+      valueInputOption: 'USER_ENTERED',
+      resource: {
+        values: [[currentDateTime, newAttendanceValue]],
+      },
+    });
+
+    res.json({ success: true, message: `Attendance for invite code ${req.body.inviteCode} updated!` });
+  } catch (error) {
+    console.error('Error updating attendance and timestamp:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
