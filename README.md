@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Neswick Wedding Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Neswick Wedding Website! This website is designed to provide all the necessary information and updates for our upcoming wedding celebration. 
 
-## Available Scripts
+## Table of Contents
+- [About](#about)
+- [Event Details](#event-details)
+- [RSVP](#rsvp)
+- [Accommodation](#accommodation)
+- [Registry](#registry)
+- [Contact](#contact)
 
-In the project directory, you can run:
+## About
+In this section, you can provide a brief introduction about the couple, their love story, and any other relevant information that you'd like to share with your guests.
 
-### `npm start`
+## Event Details
+Here, you can provide details about the wedding ceremony and reception. Include the date, time, and location of the event. You can also mention any specific instructions or dress code for the guests.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## RSVP
+In this section, provide instructions on how guests can RSVP for the wedding. You can include a form or a link to an external RSVP platform. Make sure to mention the deadline for RSVPs and any additional information required.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Accommodation
+If you have arranged accommodation for out-of-town guests, provide details about the options available. Include information about nearby hotels, discounted rates, and any booking instructions.
 
-### `npm test`
+## Registry
+If you have a wedding registry, you can include a link or provide instructions on how guests can access it. Mention any specific items you'd like to receive as gifts or any other relevant information.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Contact
+In this section, provide contact information for any queries or concerns related to the wedding. Include email addresses, phone numbers, or any other preferred method of communication.
 
-### `npm run build`
+## License
+You can include a license section if you want to specify the usage rights or any other legal information related to the content of the website.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contributing
+If you want to allow others to contribute to the website, you can include guidelines on how they can do so. Mention any specific requirements or steps they need to follow.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Acknowledgements
+If you want to acknowledge any individuals or resources that have helped in the creation of the website, you can include a section for acknowledgements.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
