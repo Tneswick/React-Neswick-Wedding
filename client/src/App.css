@@ -11,12 +11,14 @@
 
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: var(--white);
+  background-color: var(--black);
+  color: var(--white);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 100;
 }
 
 .navbar {
-  background-color: #333;
+  background-color: var(--black);
   padding: 15px;
   display: flex;
   justify-content: space-between;
@@ -43,7 +45,7 @@ body {
   top: 60px;
   left: 0;
   right: 0;
-  background-color: #333;
+  background-color: var(--black);
 }
 
 .nav-links.open {
@@ -68,6 +70,9 @@ body {
 }
 
 /* ---- OUR STORY ----- */
+.home {
+  padding: 30px;
+}
 
 .our-story-img {
   background-image: url(https://via.placeholder.com/1600x900);
@@ -77,6 +82,13 @@ body {
 .ourstory-title {
   font-family: 'Dancing Script', cursive;
   font-size: 3em;
+  text-align: center;
+}
+
+.our-story-p {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 /*---------------Media query for smaller screens---------------*/
@@ -89,7 +101,7 @@ body {
     top: 60px;
     left: 0;
     right: 0;
-    background-color: #333;
+    background-color: var(--black);
   }
 
   .nav-links.open {

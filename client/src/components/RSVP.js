@@ -2,16 +2,11 @@
 import React, { useState } from 'react';
 
 function Rsvp() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [inviteCode, setInviteCode] = useState('');
   const [attendance, setAttendance] = useState('');
 
-  const handleFirstName = (event) => {
-    setFirstName(event.target.value);
-  };
-
-  const handleLastName = (event) => {
-    setLastName(event.target.value);
+  const handleInviteCode = (event) => {
+    setInviteCode(event.target.value);
   };
 
   const handleAttendanceChange = (event) => {
@@ -21,9 +16,9 @@ function Rsvp() {
   // https://script.google.com/macros/s/AKfycbxKFPAhwmD1384JBjNMDHLfyBE9lklobV5G145CuptV9frBiWwKgykAk9sKHg1zBX7y/exec
   // above is the scripts url
 
-  async function submitRSVP(name, attendance) {
+  async function submitRSVP(invite, attendance) {
     const sheetApiUrl = 'https://script.google.com/macros/s/AKfycbxKFPAhwmD1384JBjNMDHLfyBE9lklobV5G145CuptV9frBiWwKgykAk9sKHg1zBX7y/exec'; // Replace with the deployed web app URL
-    const data = { name, attendance };
+    const data = { invite, attendance };
   
     try {
       const response = await fetch(sheetApiUrl, {
@@ -53,12 +48,11 @@ function Rsvp() {
       <h2>RSVP</h2>
       <form onSubmit={submitRSVP}>
         <label>
-          Your Name:
-          <input type="text" value={firstName} onChange={handleFirstName} />
-          <input type="text" value={lastName} onChange={handleLastName} />
+          Invite Code
+          <input type="text" value={inviteCode} onChange={handleInviteCode} />
         </label>
         <label>
-          Will you attend?
+          Will you we see you there?
           <div>
             <label>
               <input
