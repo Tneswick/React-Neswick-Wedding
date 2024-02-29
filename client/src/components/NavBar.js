@@ -16,7 +16,7 @@ function NavBar() {
         ☰
         </button>
         <h1 className='site-title'>
-          Neswick Wedding
+          Karen & Taylor
         </h1>
         <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
           <Link to="/" onClick={toggleMenu}>Home</Link>

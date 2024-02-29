@@ -79,7 +79,7 @@ body {
   background-size: cover;
 }
 
-.ourstory-title {
+.our-story-title {
   font-family: 'Dancing Script', cursive;
   font-size: 3em;
   text-align: center;
@@ -91,20 +91,44 @@ body {
   letter-spacing: 2px;
 }
 
-/*---------------Media query for smaller screens---------------*/
+/*---------------Media Queries-------------*/
 
-@media (max-width: 600px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background-color: var(--black);
+@media screen and (min-width: 820px) {
+  .site-title {
+    font-size: 2.5em;
   }
 
-  .nav-links.open {
-    display: flex;
+  .our-story-title {
+    font-size: 4.5rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .site-title {
+    font-size: 2.5em;
+  }
+
+  .our-story-title {
+    font-size: 4.5rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .site-title {
+    font-size: 2.5em;
+  }
+
+  .our-story-title {
+    font-size: 4.5rem;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .site-title {
+    font-size: 2.5em;
+  }
+
+  .our-story-title {
+    font-size: 4.5rem;
   }
 }
