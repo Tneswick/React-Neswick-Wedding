@@ -17,6 +17,19 @@ body {
   font-weight: 100;
 }
 
+.btn {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 350;
+  letter-spacing: 2px;
+}
+
 .navbar {
   background-color: var(--black);
   padding: 15px;
@@ -69,7 +82,7 @@ body {
  margin: 0 auto;
 }
 
-/* ---- OUR STORY ----- */
+/* ---- OUR STORY/HOME ----- */
 .home {
   padding: 30px;
 }
@@ -89,6 +102,20 @@ body {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+.our-story-btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.RSVPbtn {
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  background-color: var(--black);
+  border: 2px solid var(--white);
+  color: var(--white);
 }
 
 /*---------------Media Queries-------------*/

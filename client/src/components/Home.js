@@ -1,7 +1,12 @@
-// OurStory.js
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 function Home() {
+  const handleRSVPBtn = () => {
+    console.log('RSVP button clicked');
+  };
+  
   return (
     <div className='home'>
       <img className='our-story-img' src="path/to/our-story-photo.jpg" alt="Our Story" />
@@ -10,6 +15,10 @@ function Home() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.
       </p>
+      <div className='our-story-btn'>
+        <Link to="/rsvp" onClick={handleRSVPBtn}>RSVP</Link>
+        <button className='btn RSVPbtn'>RSVP</button>
+      </div>
     </div>
   );
 }

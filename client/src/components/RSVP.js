@@ -13,9 +13,6 @@ function Rsvp() {
     setAttendance(event.target.value);
   };
 
-  // https://script.google.com/macros/s/AKfycbxKFPAhwmD1384JBjNMDHLfyBE9lklobV5G145CuptV9frBiWwKgykAk9sKHg1zBX7y/exec
-  // above is the scripts url
-
   async function submitRSVP(invite, attendance) {
     const sheetApiUrl = 'https://script.google.com/macros/s/AKfycbxKFPAhwmD1384JBjNMDHLfyBE9lklobV5G145CuptV9frBiWwKgykAk9sKHg1zBX7y/exec'; // Replace with the deployed web app URL
     const data = { invite, attendance };
