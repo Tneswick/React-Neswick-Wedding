@@ -91,7 +91,7 @@ app.post('/update', async (req, res) => {
   const newAttendanceValue = req.body.newAttendance;
 
   if (!inviteCodeToUpdate || !newAttendanceValue) {
-    res.status(400).json({ error: 'Missing parameters' });
+    res.status(400).json({ error: 'Missing parameters.' });
     return;
   }
 
@@ -109,7 +109,7 @@ app.post('/update', async (req, res) => {
     const rowIndexToUpdate = values.findIndex(row => row[headers.indexOf('inviteCode')] === inviteCodeToUpdate);
 
     if (rowIndexToUpdate === -1) {
-      res.status(404).json({ error: 'Invite code not found' });
+      res.status(404).json({ error: 'Invite code not found. Please check that what you typed is correct.' });
       return;
     }
 

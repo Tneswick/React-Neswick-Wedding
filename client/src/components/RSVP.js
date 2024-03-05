@@ -1,55 +1,76 @@
-// Rsvp.js
 import React, { useState } from 'react';
 
-function Rsvp() {
+const RSVP = () => {
   const [inviteCode, setInviteCode] = useState('');
   const [attendance, setAttendance] = useState('');
+  const [errorPopup, setErrorPopup] = useState(false);
+  const [successPopup, setSuccessPopup] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleInviteCode = (event) => {
-    setInviteCode(event.target.value);
+  const handleInviteCodeChange = (event) => {
+    // Trim whitespace, capitalize characters, and limit to 4 characters
+    const code = event.target.value.trim().toUpperCase().slice(0, 4);
+    setInviteCode(code);
   };
 
   const handleAttendanceChange = (event) => {
     setAttendance(event.target.value);
   };
 
-  async function submitRSVP(invite, attendance) {
-    const sheetApiUrl = 'https://script.google.com/macros/s/AKfycbxKFPAhwmD1384JBjNMDHLfyBE9lklobV5G145CuptV9frBiWwKgykAk9sKHg1zBX7y/exec'; // Replace with the deployed web app URL
-    const data = { invite, attendance };
-  
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // Check if invite code and attendance are valid
+    if (inviteCode.length !== 4 || !attendance) {
+      setErrorMessage("It looks like the Invite code was not filled out properly, or an attendance selection has not been made.");
+      setErrorPopup(true);
+      return;
+    }
+
+    // Mock POST request to server (replace 'placeholder' with actual endpoint)
     try {
-      const response = await fetch(sheetApiUrl, {
+      const response = await fetch('https://your-server-endpoint.com/rsvp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ inviteCode, attendance }),
       });
-  
-      if (response.ok) {
-        console.log('RSVP submitted successfully');
-        // Handle success as needed
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setErrorMessage(data.error || "Something went wrong on our end.");
+        setErrorPopup(true);
       } else {
-        console.error('Error submitting RSVP');
-        // Handle errors
+        setErrorMessage(data.message || "We can't wait to see you there!");
+        setSuccessPopup(true);
       }
     } catch (error) {
-      console.error('Error:', error);
-      // Handle errors
+      setErrorMessage("Something went wrong on our end.");
+      setErrorPopup(true);
     }
-  }
-  
+  };
+
+  const closePopup = () => {
+    setErrorPopup(false);
+    setSuccessPopup(false);
+  };
 
   return (
     <div>
-      <h2>RSVP</h2>
-      <form onSubmit={submitRSVP}>
+      <form onSubmit={handleSubmit}>
         <label>
-          Invite Code
-          <input type="text" value={inviteCode} onChange={handleInviteCode} />
+          Invite Code:
+          <input
+            type="text"
+            value={inviteCode}
+            onChange={handleInviteCodeChange}
+          />
         </label>
+        <br />
         <label>
-          Will you we see you there?
+          Will you be attending?
           <div>
             <label>
               <input
@@ -71,11 +92,31 @@ function Rsvp() {
             </label>
           </div>
         </label>
+        <br />
         <button type="submit">Submit</button>
       </form>
-      {/* ... (rest of the component) */}
+
+      {/* Error Popup */}
+      {errorPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <p>{errorMessage}</p>
+            <button onClick={closePopup}>Okay</button>
+          </div>
+        </div>
+      )}
+
+      {/* Success Popup */}
+      {successPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <p>{errorMessage}</p>
+            <button onClick={closePopup}>Okay</button>
+          </div>
+        </div>
+      )}
     </div>
   );
-}
+};
 
-export default Rsvp;
+export default RSVP;

@@ -18,7 +18,7 @@ body {
 }
 
 .main-body {
-  padding: 5%;
+  padding: 0 5%;
 }
 
 .btn {
@@ -62,7 +62,10 @@ body {
   top: 60px;
   left: 0;
   right: 0;
-  background-color: var(--black);
+  background-color: rgba(1, 1, 1, 0.75);
+  font-weight: 350;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .nav-links.open {
@@ -71,8 +74,8 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: white;
-  padding: 0.5em 0.5em;
+  color: var(--white);
+  padding: 1.5em 1.5em;
 }
 
 .site-title {
@@ -124,6 +127,19 @@ body {
 
 /* --------RSVP Section-------- */
 
+.RSVP-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.RSVP-div h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3em;
+  text-align: center;
+}
+
 /* ------About Section------ */
 .about-title {
   font-family: 'Dancing Script', cursive;
@@ -149,6 +165,10 @@ body {
   font-size: 1.1em;
 }
 
+.about-div span {
+  font-weight: 450;
+}
+
 /*---------------Media Queries-------------*/
 
 @media screen and (min-width: 820px) {
@@ -157,36 +177,76 @@ body {
   }
 
   .our-story-title {
-    font-size: 4.5rem;
+    font-size: 5.5em;
+  }
+
+  .about-title {
+    font-size: 5.5em;
+  }
+
+  .about-div h3 {
+    font-size: 3em;
+  }
+
+  .about-div h4 {
+    font-size: 2em;
+  }
+
+  .about-div p {
+    font-size: 1.5em;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .site-title {
-    font-size: 3.5em;
+    font-size: 2em;
+  }
+
+  .main-body {
+    padding: 0 10%;
   }
 
   .our-story-title {
-    font-size: 6.5rem;
+    font-size: 5em;
+  }
+
+  .about-title {
+    font-size: 5em;
+  }
+
+  .about-div h3 {
+    font-size: 2m;
+  }
+
+  .about-div h4 {
+    font-size: 1.2em;
+  }
+
+  .about-div p {
+    font-size: 1em;
   }
 }
 
 @media screen and (min-width: 1920px) {
   .site-title {
-    font-size: 5.5em;
+    font-size: 2.5em;
   }
 
   .our-story-title {
-    font-size: 7.5rem;
+    font-size: 5em;
   }
 }
 
 @media screen and (min-width: 2560px) {
   .site-title {
-    font-size: 6.5em;
+    font-size: 3em;
+  }
+
+  .main-body {
+    padding: 0 15%;
   }
 
   .our-story-title {
-    font-size: 8.5rem;
+    font-size: 5em;
   }
 }

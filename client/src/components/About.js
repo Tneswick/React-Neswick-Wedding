@@ -7,20 +7,24 @@ function About() {
       <h2 className='about-title'>About</h2>
       <h3>Frequently Asked Questions</h3>
       <div>
+        <h4>Q: What is the color scheme/dress code?</h4>
+        <p>A: Black and white. We want it to be simple and elegant. We ask that guests wear their best all black outfits (Dark/Black jeans are okay).</p>
+      </div>
+      <div>
         <h4>Q: Can I bring a plus one?</h4>
-        <p>A: Please check your invitation for details on whether a plus one is included.</p>
+        <p>A: Unfortunately not, weddings are an expensive thing, and we had to make tough decisions to fit our budget.</p>
       </div>
       <div>
         <h4>Q: What time does the ceremony start?</h4>
-        <p>A: The ceremony will begin at 4:00 PM. Please arrive a bit earlier to find your seat.</p>
+        <p>A: The ceremony will begin at 2:30pm</p>
       </div>
       <div>
         <h4>Q: Is there parking available at the venue?</h4>
-        <p>A: Yes, there is ample parking available at the venue. Follow the signs upon arrival.</p>
+        <p>A: The venue has an extremely small parking lot, and we are going to reserve those spots for specific family members.</p>
       </div>
       <div>
         <h4>Q: Are children welcome at the wedding?</h4>
-        <p>A: The wedding is an adults-only event. We hope you can arrange for childcare during the celebration.</p>
+        <p>A: Though we would love to have your kids there, the wedding is an <span>adults-only event</span>. We hope you can arrange for childcare, so everyone can let loose and have some fun.</p>
       </div>
     </div>
   );
