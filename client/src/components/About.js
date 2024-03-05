@@ -3,8 +3,8 @@ import React from 'react';
 
 function About() {
   return (
-    <div>
-      <h2>About</h2>
+    <div className='about-div'>
+      <h2 className='about-title'>About</h2>
       <h3>Frequently Asked Questions</h3>
       <div>
         <h4>Q: Can I bring a plus one?</h4>
@@ -22,7 +22,6 @@ function About() {
         <h4>Q: Are children welcome at the wedding?</h4>
         <p>A: The wedding is an adults-only event. We hope you can arrange for childcare during the celebration.</p>
       </div>
-      {/* Add more FAQs as needed */}
     </div>
   );
 }
