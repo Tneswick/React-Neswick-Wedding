@@ -11,8 +11,8 @@ const photosData = [
 
 function Photos() {
   return (
-    <div>
-      <h2>Photos</h2>
+    <div className='photos-div'>
+      <h2 className='photos-title'>Photos</h2>
       <div className="photo-grid">
         {photosData.map((photo, index) => (
           <img key={index} src={photo} alt={`Capture ${index + 1}`} />

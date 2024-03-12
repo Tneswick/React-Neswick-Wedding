@@ -13,11 +13,13 @@ function NavBar() {
     <div>
       <div className={`navbar ${isMenuOpen ? 'open' : ''}`}>
         <button className={`menu-button ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-        ☰
+          ☰
         </button>
-        <h1 className='site-title'>
-          Karen & Taylor
-        </h1>
+        <Link to='/' onClick={''}>
+          <h1 className='site-title'>
+            Karen & Taylor
+          </h1>
+        </Link>
         <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
           <Link to="/" onClick={toggleMenu}>Home</Link>
           <Link to="/photos" onClick={toggleMenu}>Photos</Link>
