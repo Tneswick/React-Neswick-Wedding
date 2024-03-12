@@ -27,6 +27,8 @@ const RSVP = () => {
       return;
     }
 
+    const numeric = (attendance === 'yes' ? 1 : 0);
+
     // Mock POST request to server (replace 'placeholder' with actual endpoint)
     try {
       const response = await fetch('https://your-server-endpoint.com/rsvp', {
@@ -34,7 +36,7 @@ const RSVP = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ inviteCode, attendance }),
+        body: JSON.stringify({ inviteCode, numeric}),
       });
 
       const data = await response.json();
@@ -52,69 +54,75 @@ const RSVP = () => {
     }
   };
 
-  const closePopup = () => {
+  const closeErrorPopup = () => {
     setErrorPopup(false);
+  };
+
+  const closeSuccessPopup = () => {
     setSuccessPopup(false);
   };
 
   return (
-    <div>
+    <div className='RSVP-div'>
+      <h2>RSVP</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          Invite Code:
           <input
+            className='input-field'
             type="text"
+            placeholder='INVITE CODE'
             value={inviteCode}
             onChange={handleInviteCodeChange}
           />
+        <br />
+        <label className='attendance-label' >
+          Will we see you there?
         </label>
         <br />
-        <label>
-          Will you be attending?
-          <div>
-            <label>
-              <input
-                type="radio"
-                value="yes"
-                checked={attendance === 'yes'}
-                onChange={handleAttendanceChange}
-              />
-              Yes
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="no"
-                checked={attendance === 'no'}
-                onChange={handleAttendanceChange}
-              />
-              No
-            </label>
-          </div>
-        </label>
+        <div>
+          <input
+            className='radio-input'
+            type="radio"
+            value="yes"
+            checked={attendance === 'yes'}
+            onChange={handleAttendanceChange}
+          />
+          <label>
+            Yes
+          </label>
+          <input
+            className='radio-input'
+            type="radio"
+            value="no"
+            checked={attendance === 'no'}
+            onChange={handleAttendanceChange}
+          />
+          <label>
+            No
+          </label>
+        </div>
         <br />
-        <button type="submit">Submit</button>
+        <button className='btn' type="submit">Submit</button>
       </form>
 
-      {/* Error Popup */}
       {errorPopup && (
-        <div className="popup">
-          <div className="popup-content">
+        <div className="modal">
+          <div className="modal-content">
             <p>{errorMessage}</p>
-            <button onClick={closePopup}>Okay</button>
+            <button className='btn' onClick={closeErrorPopup}>Okay</button>
           </div>
         </div>
       )}
 
-      {/* Success Popup */}
       {successPopup && (
-        <div className="popup">
-          <div className="popup-content">
+        <div className="modal">
+          <div className="modal-content">
             <p>{errorMessage}</p>
-            <button onClick={closePopup}>Okay</button>
+            <button className='btn' onClick={closeSuccessPopup}>Okay</button>
           </div>
         </div>
       )}
+
+      {(errorPopup || successPopup) && <div className="overlay"></div>}
     </div>
   );
 };

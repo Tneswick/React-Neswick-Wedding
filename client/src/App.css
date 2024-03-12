@@ -22,16 +22,18 @@ body {
 }
 
 .btn {
-  background-color: var(--white);
-  color: var(--black);
+  background-color: var(--black);
+  color: var(--white);
   padding: 0.5em 1em;
   border: none;
   border-radius: 0px;
+  border: 2px solid var(--white);
   cursor: pointer;
   transition: background-color 0.3s;
   font-family: "Montserrat", sans-serif;
   font-weight: 350;
   letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .navbar {
@@ -132,12 +134,110 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 90%;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.7px;
 }
 
 .RSVP-div h2 {
   font-family: 'Dancing Script', cursive;
   font-size: 3em;
   text-align: center;
+  margin: 0.8em 0 0.8em;
+}
+
+.invite-code-label {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.input-field {
+  margin: 3px 0px 15px;
+  width: 5em;
+  padding: 8px;
+  border: 2px solid var(--white);
+  border-radius: 0px;
+  background-color: var(--black);
+  color: var(--white);
+  letter-spacing: 1.7px;
+  text-align: center;
+  font-weight: 450;
+  font-size: 1.2em;
+}
+
+.input-field::placeholder {
+  font-weight: 200;
+  font-size: 0.7em;
+  letter-spacing: 0.8px;
+}
+
+.attendance-label {
+  font-size: 1.2em;
+  margin: 10px 10px 10px;
+}
+
+.radio-input {
+  margin: 0 1em;
+}
+
+/* Style for radio inputs under class "radio-input" */
+.radio-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--white);
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  margin-top: 13px;
+}
+
+/* Style for checked radio inputs under class "radio-input" */
+.radio-input:checked {
+  background-color: var(--black);
+}
+
+/* Style for the 'X' inside the checked radio inputs under class "radio-input" */
+.radio-input:checked::after {
+  content: 'X';
+  display: block;
+  color: var(--white);
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--black);
+  padding: 20px;
+  border: var(--white) 2px solid;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
 /* ------About Section------ */
