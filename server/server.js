@@ -10,7 +10,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // CLIENT FOR THE SERVER ============================================================================<
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
 
 
 // Read environment variables
@@ -136,7 +136,7 @@ app.post('/update', async (req, res) => {
 
 // CATCHALL FOR GET REQUESTS OTHER THAN ABOVE - RETURN REACT APP ===============================================<
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
 
 // Start the server
