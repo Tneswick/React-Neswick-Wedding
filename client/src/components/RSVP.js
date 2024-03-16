@@ -31,7 +31,7 @@ const RSVP = () => {
 
     // Mock POST request to server (replace 'placeholder' with actual endpoint)
     try {
-      const response = await fetch('https://your-server-endpoint.com/rsvp', {
+      const response = await fetch('www.karenandtaylor.com/update', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

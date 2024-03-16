@@ -115,7 +115,8 @@ app.post('/update', async (req, res) => {
     }
 
     // Get the current date and time
-    const currentDateTime = moment().format('HH:mm a MM/DD/YYYY');
+    const dateTime = moment.tz('America/Los_Angeles');
+    const currentDateTime = dateTime.format('hh:mm a MM/DD/YYYY')
 
     // Update the attendance and timestamp values in the corresponding row
     await sheets.spreadsheets.values.update({
