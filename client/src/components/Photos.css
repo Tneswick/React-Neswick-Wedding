@@ -1,0 +1,60 @@
+.photos-div {
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.photos-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    text-align: center;
+    display: block;
+}
+
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+
+.photo-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+  height: 200px; /* Set a fixed height for the thumbnail */
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+}
+
+.photo-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  cursor: pointer;
+}

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 function Home() {
   const handleBtn = () => {
     console.log('btn clicked!');
@@ -9,7 +8,7 @@ function Home() {
 
   return (
     <div className='home'>
-      <img className='our-story-img' src="https://placehold.co/1280x720" alt="Our Story" />
+      <img className='our-story-img' src='/images/img1.jpg' alt="Our Story" />
       <h2 className='our-story-title'>Our Story</h2>
       <p className='our-story-p'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod

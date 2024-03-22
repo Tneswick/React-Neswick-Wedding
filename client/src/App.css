@@ -73,20 +73,26 @@ body {
   top: 60px;
   left: 0;
   right: 0;
-  background-color: rgba(1, 1, 1, 0.75);
+  background-color: rgba(1, 1, 1, 0.9);
   font-weight: 350;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
+.nav-links a:first-child {
+  border-top: none;
+}
+
 .nav-links.open {
   display: flex;
+  z-index: 1000;
 }
 
 .nav-links a {
   text-decoration: none;
   color: var(--white);
   padding: 1.5em 1.5em;
+  border-top: var(--white) 1px solid;
 }
 
 .site-title {
@@ -138,22 +144,7 @@ body {
   color: var(--white);
 }
 
-/* --------Photos Section------ */
-
-.photos-div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  margin: 20px 0;
-}
-
-.photos-title {
-  font-family: 'Dancing Script', cursive;
-  font-size: 3em;
-  text-align: center;
-
-}
+/* --------Photos Separate CSS File------ */
 
 /* --------RSVP Section-------- */
 
@@ -284,7 +275,7 @@ body {
 
 .about-div h4 {
   font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
   font-size: 1.4em;
   margin: 0;
 }
