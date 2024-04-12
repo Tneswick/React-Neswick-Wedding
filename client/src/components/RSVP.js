@@ -27,7 +27,7 @@ const RSVP = () => {
       return;
     }
 
-    const numeric = (attendance === 'yes' ? 1 : 0);
+    const newAttendance = (attendance === 'yes' ? 1 : 0);
 
     // Mock POST request to server (replace 'placeholder' with actual endpoint)
     try {
@@ -36,7 +36,7 @@ const RSVP = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ inviteCode, numeric}),
+        body: JSON.stringify({ inviteCode, newAttendance}),
       });
 
       const data = await response.json();
