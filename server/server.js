@@ -90,6 +90,7 @@ app.post('/update', async (req, res) => {
 
   const inviteCodeToUpdate = req.body.inviteCode;
   const newAttendanceValue = req.body.newAttendance;
+  console.log('inviteCodeToUpdate:', inviteCodeToUpdate, 'newAttendanceValue', newAttendanceValue)
 
   if (!inviteCodeToUpdate || !newAttendanceValue) {
     res.status(400).json({ error: 'Missing parameters.' });
