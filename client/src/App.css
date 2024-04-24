@@ -266,6 +266,50 @@ body {
   text-align: center;
 }
 
+.about-honeymoon-div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  text-align: center
+}
+
+.qr-code {
+  width: 35%;
+  text-align: center;
+  justify-self: center;
+}
+
+.qr-code:hover {
+  cursor: pointer;
+  filter: invert(100%);
+}
+
+.honeymoon-link {
+  font-size: 1.6em;
+  text-align: center;
+  text-decoration: underline;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1.2px;
+}
+
+.honeymoon-link:hover {
+  color: var(--gold);
+}
+
+.honeymoon-p {
+  font-size: 1.1em;
+  text-align: center;
+  width: 55%;
+  align-self: center;
+  justify-self: center;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 .about-div h3 {
   font-family: 'Dancing Script', cursive;
   letter-spacing: 1.4px;
@@ -302,6 +346,18 @@ body {
   
   .our-story-title {
     font-size: 5em;
+  }
+
+  .qr-code {
+    width: 55%;
+  }
+
+  .honeymoon-link {
+    font-size: 2.9em;
+  }
+
+  .honeymoon-p {
+    font-size: 1.9em;
   }
 
   .about-title {
