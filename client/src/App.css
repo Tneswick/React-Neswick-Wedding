@@ -259,6 +259,11 @@ body {
   z-index: 999;
 }
 
+.rsvp-h3 {
+  font-size: small;
+  color: var(--white);
+}
+
 /* ------About Section------ */
 .about-title {
   font-family: 'Dancing Script', cursive;
@@ -349,7 +354,7 @@ body {
   }
 
   .qr-code {
-    width: 55%;
+    width: 30%;
   }
 
   .honeymoon-link {

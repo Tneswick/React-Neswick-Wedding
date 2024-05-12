@@ -104,6 +104,9 @@ const RSVP = () => {
         <button className='btn' type="submit">Submit</button>
       </form>
 
+      <br />
+      <p className='rsvp-h3'>Please contact Taylor or Karen if you have any technical difficulties.</p>
+
       {errorPopup && (
         <div className="modal">
           <div className="modal-content">

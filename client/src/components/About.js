@@ -5,13 +5,6 @@ function About() {
   return (
     <div className='about-div'>
       <h2 className='about-title'>About</h2>
-      <div className='about-honeymoon-div'>
-        <a className='qr-a' href='https://withjoy.com/taylor-and-karen/registry'>
-          <img src='./images/qr-code.png' alt='QR Code' className='qr-code' />
-        </a>
-        <a className='honeymoon-link' href="https://withjoy.com/taylor-and-karen/registry">Link To Honeymoon Fund</a>
-        <p className='honeymoon-p'>As we embark on this new chapter together, we are humbled by the love and support of our cherished friends and family. While your presence is the greatest gift of all, should you wish to contribute, kindly consider helping us create lasting memories on our honeymoon, as we already have a home together.</p>
-      </div>
       <h3>Frequently Asked Questions</h3>
       <div>
         <h4>Q: What is the color scheme/dress code?</h4>
@@ -32,6 +25,13 @@ function About() {
       <div>
         <h4>Q: Are children welcome at the wedding?</h4>
         <p>A: Though we would love to have your kids there, the wedding is an <span>adults-only event</span>. We hope you can arrange for childcare, so everyone can let loose and have some fun.</p>
+      </div>
+      <div className='about-honeymoon-div'>
+        <a className='qr-a' href='https://withjoy.com/taylor-and-karen/registry'>
+          <img src='./images/qr-code.png' alt='QR Code' className='qr-code' />
+        </a>
+        <a className='honeymoon-link' href="https://withjoy.com/taylor-and-karen/registry">Link To Honeymoon Fund</a>
+        <p className='honeymoon-p'>As we embark on this new chapter together, we are humbled by the love and support of our cherished friends and family. While your presence is the greatest gift of all, should you wish to contribute, kindly consider helping us create lasting memories on our honeymoon, as we already have a home together.</p>
       </div>
     </div>
   );
