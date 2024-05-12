@@ -3,7 +3,7 @@ import './Photos.css';
 
 const Photos = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
-  const numPhotos = 20; // Total number of photos
+  const numPhotos = 18; // Total number of photos
 
   const handleClick = (photo) => {
     setSelectedPhoto(photo);
