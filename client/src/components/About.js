@@ -39,11 +39,12 @@ function About() {
         <p>A: If you have any questions beyond those listed here, please feel free to reach out to either the bride or the groom. We're happy to help!</p>
       </div>
       <div className='about-honeymoon-div'>
-        <a className='qr-a' href='https://withjoy.com/taylor-and-karen/registry'>
-          <img src='./images/qr-code.png' alt='QR Code' className='qr-code' />
-        </a>
-        <a className='honeymoon-link' href="https://withjoy.com/taylor-and-karen/registry">Link To Honeymoon Fund</a>
+        <h2 className='about-title'>Gifts</h2>
         <p className='honeymoon-p'>As we embark on this new chapter together, we are humbled by the love and support of our cherished friends and family. While your presence is the greatest gift of all, should you wish to contribute, kindly consider helping us create lasting memories on our honeymoon, as we already have a home together.</p>
+        <a className='honeymoon-link' href="https://withjoy.com/taylor-and-karen/registry">Link To Honeymoon Fund</a>
+        <a className='honeymoon-link' href="https://venmo.com/Karen-Vera-2">Link Karen's Venmo</a>
+        <p className='for-zelle'>For Zelle</p>
+        <h1 className='zelle-account'>NEZBOPPIN@GMAIL.COM</h1>
       </div>
     </div>
   );
