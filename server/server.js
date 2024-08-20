@@ -88,8 +88,13 @@ app.get('/read-sheet', async (req, res) => {
 app.post('/update', async (req, res) => {
   const sheets = google.sheets({ version: 'v4', auth: req.googleSheetsClient });
 
+  console.log('------body------')
+  console.log('req.body:', req.body);
+  console.log('req.body.inviteCode:', req.body.inviteCode);
   const inviteCodeToUpdate = req.body.inviteCode;
   const newAttendanceValue = req.body.newAttendance;
+
+  console.log('------variables------ ')
   console.log('inviteCodeToUpdate:', inviteCodeToUpdate, 'newAttendanceValue', newAttendanceValue)
 
   if (!inviteCodeToUpdate || !newAttendanceValue) {
